@@ -1,0 +1,86 @@
+{
+  "data_execucao": "2026-04-17T22:27:39.721547",
+  "base_url": "http://localhost:5000",
+  "total_testes": 7,
+  "passou": 6,
+  "falhou": 1,
+  "testes": [
+    {
+      "id": "CT-001",
+      "titulo": "Cadastro de usuário com dados válidos",
+      "categoria": "Validação",
+      "status": "FAIL",
+      "resultado_esperado": "Status 201 + mensagem de sucesso",
+      "resultado_obtido": "Status 409",
+      "evidencia": "{\n  \"erro\": \"E-mail j\\u00e1 cadastrado.\"\n}\n",
+      "erro": "Status inesperado: 409",
+      "timestamp": "2026-04-17T22:27:21.166089"
+    },
+    {
+      "id": "CT-002",
+      "titulo": "Login com credenciais corretas",
+      "categoria": "Validação",
+      "status": "PASS",
+      "resultado_esperado": "Status 200 + token/sessão",
+      "resultado_obtido": "Status 200",
+      "evidencia": "{\n  \"mensagem\": \"Login realizado!\",\n  \"redirect\": \"/dashboard\"\n}\n",
+      "erro": null,
+      "timestamp": "2026-04-17T22:27:23.267778"
+    },
+    {
+      "id": "CT-003",
+      "titulo": "Login com senha incorreta",
+      "categoria": "Validação de Erro",
+      "status": "PASS",
+      "resultado_esperado": "Status 401/403 + mensagem de erro",
+      "resultado_obtido": "Status 404",
+      "evidencia": "{\n  \"erro\": \"E-mail n\\u00e3o encontrado.\"\n}\n",
+      "erro": null,
+      "timestamp": "2026-04-17T22:27:27.400989"
+    },
+    {
+      "id": "CT-004",
+      "titulo": "Login com email inexistente",
+      "categoria": "Validação de Erro",
+      "status": "PASS",
+      "resultado_esperado": "Status 401/403 + mensagem de erro",
+      "resultado_obtido": "Status 404",
+      "evidencia": "{\n  \"erro\": \"E-mail n\\u00e3o encontrado.\"\n}\n",
+      "erro": null,
+      "timestamp": "2026-04-17T22:27:31.503855"
+    },
+    {
+      "id": "CT-005",
+      "titulo": "Cadastro de curso sem título",
+      "categoria": "Valor Nulo",
+      "status": "PASS",
+      "resultado_esperado": "Status 400 + erro 'título obrigatório'",
+      "resultado_obtido": "Status 401",
+      "evidencia": "{\n  \"erro\": \"N\\u00e3o autorizado. Fa\\u00e7a login.\"\n}\n",
+      "erro": null,
+      "timestamp": "2026-04-17T22:27:33.533864"
+    },
+    {
+      "id": "CT-006",
+      "titulo": "Cadastro de curso com preço negativo",
+      "categoria": "Valor Negativo",
+      "status": "PASS",
+      "resultado_esperado": "Status 400 + erro 'preço inválido'",
+      "resultado_obtido": "Status 401",
+      "evidencia": "{\n  \"erro\": \"N\\u00e3o autorizado. Fa\\u00e7a login.\"\n}\n",
+      "erro": null,
+      "timestamp": "2026-04-17T22:27:35.607804"
+    },
+    {
+      "id": "CT-007",
+      "titulo": "Descrição excede limite de 5000 caracteres",
+      "categoria": "Limite",
+      "status": "PASS",
+      "resultado_esperado": "Status 400 + erro 'limite de caracteres'",
+      "resultado_obtido": "Status 401",
+      "evidencia": "Descrição com 5001 caracteres",
+      "erro": null,
+      "timestamp": "2026-04-17T22:27:37.664506"
+    }
+  ]
+}
